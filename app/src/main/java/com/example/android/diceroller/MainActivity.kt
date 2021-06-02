@@ -38,11 +38,16 @@ class MainActivity : AppCompatActivity() {
         val dice1 = Dice(6)
         val diceRolled1 = dice1.roll()
 
+        val dice2 = Dice(6)
+        val diceRolled2 = dice2.roll()
+
         // Update the screen with the dice roll
         // Find the ImageView in the layout
-        val diceImage: ImageView = findViewById(R.id.imageView)
+        val diceImage1: ImageView = findViewById(R.id.imageView)
+        val diceImage2: ImageView = findViewById(R.id.imageView2)
+
         // Determine which drawable resource ID to use based on the dice roll
-        val drawableResource = when(diceRolled1){
+        val drawableResource1 = when(diceRolled1){
             1 -> R.drawable.dice_1
             2 -> R.drawable.dice_2
             3 -> R.drawable.dice_3
@@ -50,11 +55,23 @@ class MainActivity : AppCompatActivity() {
             5 -> R.drawable.dice_5
             else -> R.drawable.dice_6
         }
+
+        val drawableResource2 = when(diceRolled2){
+            1 -> R.drawable.dice_1
+            2 -> R.drawable.dice_2
+            3 -> R.drawable.dice_3
+            4 -> R.drawable.dice_4
+            5 -> R.drawable.dice_5
+            else -> R.drawable.dice_6
+        }
+
         // Update the ImageView with the correct drawable resource ID
-        diceImage.setImageResource(drawableResource)
+        diceImage1.setImageResource(drawableResource1)
+        diceImage2.setImageResource(drawableResource2)
 
         // Update the content description
-        diceImage.contentDescription = diceRolled1.toString()
+        diceImage1.contentDescription = diceRolled1.toString()
+        diceImage2.contentDescription = diceRolled2.toString()
     }
 }
 
